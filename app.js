@@ -10,7 +10,7 @@ const label = document.querySelector('.error-label')
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
-    Validation();
+    return Validation();
     
 })
 
@@ -26,14 +26,12 @@ const setError = (object,message)=>{
     const errorImg = inputBox.querySelector('.error-img')
     errorImg.classList.add('active')
    
-    if(object = email){
+    if(object === email){
         email.placeholder = "email@example/com"
         // email.placeholder.style.color = 'red'
      
     }
-    else{
-        email.placeholder = ''
-    }
+   
 
    
 }
@@ -45,7 +43,13 @@ const setPass = (object) =>{
     errorImg.classList.remove('active')
 
     const input = inputBox.querySelector('.input')
-    input.style.border = 'none'
+    input.style.border = '1px solid rgba(128, 128, 128,0.7) '
+
+    if(object === email){
+        email.placeholder ='Email Addresss'
+    }
+    const clear = input.value = ''
+    return clear
     
 
 }
